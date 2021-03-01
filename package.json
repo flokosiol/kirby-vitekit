@@ -1,0 +1,15 @@
+{
+  "name": "kirby-vite",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "touch src/.lock && APP_ENV=development vite",
+    "build": "touch src/.lock && rm src/.lock && APP_ENV=production vite build"
+  },
+  "devDependencies": {
+    "sass": "^1.32.6",
+    "vite": "^2.0.4"
+  },
+  "dependencies": {
+    "vite-plugin-live-reload": "^2.0.0"
+  }
+}

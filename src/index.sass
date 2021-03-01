@@ -1,0 +1,78 @@
+$c-blue: #49c7ff
+$c-purple: #bd35fe
+
+@import 'sass/font'
+
+*
+  box-sizing: border-box
+
+html, body, #root
+  height: 100%
+  width: 100%
+
+body
+  margin: 0
+  padding: 32px
+  // border: 5px solid #fff
+  min-width: 320px
+  color: #444
+  background-color: $c-blue
+  background-image: linear-gradient(to bottom right, $c-blue, $c-purple)
+  background-attachment: fixed
+  font-family: $font-family, monospace
+
+main
+  max-width: 1024px
+  padding: 32px
+  margin: auto
+  background-color: #fff
+  border: 5px solid #ffbb14
+
+h1
+  font-size: 48px
+  text-align: center
+
+h2
+  padding-top: 24px
+  color: $c-purple
+
+h3
+  padding-top: 16px
+  color: $c-blue
+
+p, ul, li
+  font-size: 16px
+  line-height: 1.4
+
+code
+  display: inline-block
+  padding:
+    right: 8px
+    left: 8px
+  background-color: #ececec
+  font-family: $font-family
+  font-size: 14px
+
+  pre &
+    display: block
+    padding: 16px 20px
+    color: #fff
+    background-color: #444
+
+a
+  color: inherit
+
+  &:hover,
+  &:focus
+    text-decoration: none
+
+footer
+  display: block
+  max-width: 1024px
+  margin: auto
+  padding: 20px
+  color: #fff
+  text-align: center
+
+  p
+    font-size: 14px

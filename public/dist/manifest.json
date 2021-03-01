@@ -1,0 +1,16 @@
+{
+  "index.js": {
+    "file": "assets/index.7cf3dc6e.js",
+    "src": "index.js",
+    "isEntry": true,
+    "css": [
+      "assets/index.11650024.css"
+    ],
+    "assets": [
+      "assets/fira-code-v10-latin-regular.8803e59c.woff2",
+      "assets/fira-code-v10-latin-regular.94b5d368.woff",
+      "assets/fira-code-v10-latin-600.2c80eba0.woff2",
+      "assets/fira-code-v10-latin-600.44664abe.woff"
+    ]
+  }
+}
