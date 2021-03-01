@@ -55,12 +55,12 @@ You can start the development process with:
 yarn dev
 ```
 
-Vite will run a local server on port `:3000`. Because of the unusual setup `http://localhost:3000` won't be accessible. To be honest, I don't really understand the reasons but it's no problem for use because we can use the local domain. You can [find more information here](https://github.com/andrefelipe/vite-php-setup)
+Vite will run a local server on port `:3000`. Because of the unusual setup `http://localhost:3000` won't be accessible. To be honest, I don't really understand the reasons but it's no problem for use because we can use the local domain. You can [find more information here](https://github.com/andrefelipe/vite-php-setup).
 
 
 ## Build
 
-If you are ready for production you yhould stop the dev server and use the following command to create your optimized assets.
+If you are ready for production you should stop the dev server and use the following command to create your optimized assets.
 ```
 yarn build
 ```
@@ -71,17 +71,17 @@ I included the `dist` folder in this repository to show the basic setup. You mig
 
 ## Backend integration
 
-Kirby has to switch dynamically between `development` and `production` mode and included different scripts and files. This is handled by the `vite` helper plugin included in this repository.
+Kirby has to switch dynamically between `development` and `production` mode and included different scripts and files. This is handled by the [vite helper plugin](https://github.com/flokosiol/kirby-vitekit/tree/main/site/plugins/vite) included in this repository.
 
 **MORE INFORMATION ABOUT THE PLUGIN WILL FOLLOW.**
 
-Just one thing: during development a `.lock` file will be generated inside the `src` folder (and will be deleted when you run the build command). The `vite` plugin will use this `.lock` file to indicate whether to use the [dynamic import polyfill](https://vitejs.dev/config/#build-polyfilldynamicimport) or the generated and hased assets.
+Just one thing: during development a `.lock` file will be generated inside the `src` folder (and will be deleted when you run the build command). The `vite` plugin will use this `.lock` file to indicate whether to use the [dynamic import polyfill](https://vitejs.dev/config/#build-polyfilldynamicimport) (during development) or the generated and hashed assets (in production).
 
-You can find more information about the Vite backend integration here: https://vitejs.dev/guide/backend-integration.html#backend-integration
+Read more about the [Vite.js backend integration](https://vitejs.dev/guide/backend-integration.html#backend-integration).
 
 ## License
 
-Feel free to use this ViteKit setup for your personal and commercial projects for free. 
+Feel free to use this ViteKit setup for your personal and commercial projects for free.  
 Feel also free to [send me money](https://www.paypal.me/flokosiol/5) if you like.
 
 ### Kirby
@@ -90,7 +90,7 @@ You can try Kirby on your local machine or on a test server as long as you need 
 
 ## Links and Credits
 
-https://github.com/tonsky/FiraCode
-https://github.com/andrefelipe/vite-php-setup
-https://getkirby.com/
-https://vitejs.dev
+- https://github.com/tonsky/FiraCode
+- https://github.com/andrefelipe/vite-php-setup
+- https://getkirby.com/
+- https://vitejs.dev
