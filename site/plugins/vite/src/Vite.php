@@ -7,7 +7,6 @@ use Kirby\Toolkit\F;
 use Kirby\Data\Data;
 
 class Vite {
-
   /**
    * Check for .lock. file in /src as indicator for development mode
    */
@@ -36,6 +35,10 @@ class Vite {
    * Returns production JS file
    */
   public static function jsProductionFiles() {
+    if (static::isDevelopmentMode()) {
+      return null;
+    }
+
     $entry = static::manifestData()['index.js']['file'];
 
     # FIXME: Might be an array of multiple files one day
@@ -49,6 +52,10 @@ class Vite {
    * Returns production CSS files
    */
   public static function cssProductionFiles() {
+    if (static::isDevelopmentMode()) {
+      return null;
+    }
+
     $entries = static::manifestData()['index.js']['css'];
     $files = [];
 
