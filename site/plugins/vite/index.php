@@ -1,7 +1,7 @@
 <?php
 
 load([
-  'flokosiol\\vite' => 'src/Vite.php',
+  'Flokosiol\\Vite' => 'src/Vite.php',
 ], __DIR__);
 
 Kirby::plugin('flokosiol/vite', [
