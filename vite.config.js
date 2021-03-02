@@ -1,14 +1,14 @@
+import { resolve } from 'path'
 import liveReload from 'vite-plugin-live-reload'
-const { resolve } = require('path')
 
-export default {
+export default ({ command, mode }) => ({
   plugins: [
-    liveReload(__dirname+'/site/**/*.php')
+    liveReload('site/**/*.php')
   ],
   root: 'src',
-  base: process.env.APP_ENV === 'development' ? '/' : '/dist/',
+  base: mode === 'development' ? '/' : '/dist/',
   build: {
-    outDir: resolve(__dirname, 'public/dist'),
+    outDir: resolve(process.cwd(), 'public/dist'),
     emptyOutDir: true,
     manifest: true,
     target: 'es2018',
@@ -21,5 +21,5 @@ export default {
       port: 3000
     },
   }
-}
+})
 

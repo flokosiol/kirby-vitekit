@@ -2,8 +2,8 @@
   "name": "kirby-vite",
   "version": "1.0.0",
   "scripts": {
-    "dev": "touch src/.lock && APP_ENV=development vite",
-    "build": "touch src/.lock && rm src/.lock && APP_ENV=production vite build"
+    "dev": "touch src/.lock && vite",
+    "build": "rm -f src/.lock && vite build"
   },
   "devDependencies": {
     "sass": "^1.32.6",
