@@ -2,20 +2,18 @@
 
 namespace Flokosiol;
 
+use Exception;
 use Kirby\Toolkit\F;
 use Kirby\Data\Data;
 
 class Vite {
-
   /**
    * Check for .lock. file in /src as indicator for development mode
    */
   public static function isDevelopmentMode() {
     $lockFile = kirby()->root('base') . '/src/.lock';
-    if (F::exists($lockFile)) {
-      return true;
-    }
-    return false;
+
+    return F::exists($lockFile);
   }
 
 
@@ -24,10 +22,12 @@ class Vite {
    */
   public static function manifestData() {
     $manifestFile = kirby()->root('index') . '/dist/manifest.json';
-    if (F::exists($manifestFile)) {
-      return Data::read($manifestFile);
+
+    if (!F::exists($manifestFile)) {
+      throw new Exception('Build assets not found, run `npm run build`.');
     }
-    return '';
+
+    return Data::read($manifestFile);
   }
 
 
@@ -35,12 +35,16 @@ class Vite {
    * Returns production JS file
    */
   public static function jsProductionFiles() {
-    $manifestData = Vite::manifestData();
-    if (!empty($manifestData['index.js']['file'])) {
-      #FIXME: Might be an array of multiple files one day
-      return 'dist/' . $manifestData['index.js']['file'];
+    if (static::isDevelopmentMode()) {
+      return null;
     }
-    return '';
+
+    $entry = static::manifestData()['index.js']['file'];
+
+    # FIXME: Might be an array of multiple files one day
+    return !empty($entry)
+      ? 'dist/' . $entry
+      : null;
   }
 
 
@@ -48,13 +52,19 @@ class Vite {
    * Returns production CSS files
    */
   public static function cssProductionFiles() {
-    $manifestData = Vite::manifestData();
+    if (static::isDevelopmentMode()) {
+      return null;
+    }
+
+    $entries = static::manifestData()['index.js']['css'];
     $files = [];
-    if (!empty($manifestData['index.js']['css'][0])) {
-      foreach ($manifestData['index.js']['css'] as $cssFile) {
-        $files[] = 'dist/' . $cssFile;
+
+    if (!empty($entries[0])) {
+      foreach ($entries as $entry) {
+        $files[] = 'dist/' . $entry;
       }
     }
+
     return $files;
   }
 }
