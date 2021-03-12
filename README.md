@@ -1,8 +1,16 @@
 # Kirby ViteKit ⚡️
 
-## Installation
+These are a few notes on how I managed to use [Vite.js](https://vitejs.dev) together with a `public` folder setup for [Kirby 3](https://getkirby.com/).
 
-These are a few notes on how I managed to use [Vite.js](https://vitejs.dev) together with a `public` folder setup for [Kirby 3](https://getkirby.com/). Hopefully, I will find the time for some more explanations in the future.
+## Features
+
+- includes a [plugin](https://github.com/flokosiol/kirby-vitekit/tree/main/site/plugins/vite) with helpful snippets to integrate all necessary Vite.js files, already integrated in the template files of this Kirby Kit
+- Vite.js config for [development and build process](https://github.com/flokosiol/kirby-vitekit/blob/main/vite.config.js)
+- automatic detection of dev/production mode
+- live reloading
+- public folder setup to keep your `src` files out of the webroot
+
+## Installation
 
 ### Vhost
 
